@@ -10,7 +10,7 @@
     [1] Falkenhainer, Forbus & Gentner (1989). The structure-mapping engine:
           algorithm and examples. Artificial Intelligence, 41, 1-62.
   "
-  (:use sme-clj.typedef)
+  (:require [sme-clj.typedef :refer :all] )
   (:require [sme-clj.core   :as sme]
             [clojure.pprint :as pp]))
 
@@ -79,6 +79,22 @@
                       (e flat-top Water)
                       (e liquid Water)))
 
+(defn -main
+  [& args]
+  (do
+    ;; Water flow is the base, heat flow the target
+    (def result (sme/match simple-water-flow simple-heat-flow))
+    (def gmaps (:gmaps result))
+
+    ;; Should show the cause relation between the greater temperature
+    ;; relation and the heat flow relation. This relation has been inferred
+    ;; based on the analogical cause relation in the water flow graph.
+    (pp/write (:transferred (first gmaps)) :suppress-namespaces true)
+
+    ;; For other keys like :transferred that are stored in a gmap and might be
+    ;; interesting to examine, see the docstring for 'sme-clj.core/match
+    )
+  )
 ;; Commented out example
 #_(do
     ;; Water flow is the base, heat flow the target

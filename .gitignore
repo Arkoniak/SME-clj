@@ -5,3 +5,7 @@ classes
 *.class
 *~
 *#
+.idea
+target
+*.iml
+.nrepl-port
