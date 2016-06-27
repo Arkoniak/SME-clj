@@ -34,10 +34,13 @@
     [1] Falkenhainer, B., Forbus, K. & Gentner, D. (1989). The structure-mapping
           engine: algorithm and examples. Artificial Intelligence, 41, 1-62."
   (:require [clojure.set :as set]
-            [clojure.contrib.set :as c.set]
-            [clojure.contrib.combinatorics :as comb])
-  (:use sme-clj.typedef
-        sme-clj.ruledef))
+            [clojure.math.combinatorics :as comb]
+            [clojure.set :as c.set]
+            ;[clojure.contrib.set :as c.set]
+            ;[clojure.contrib.combinatorics :as comb]
+            )
+  (:require [sme-clj.typedef :refer :all]
+        [sme-clj.ruledef :refer :all] ))
 
 ;;;;
 ;;;; GENERATING MATCH HYPOTHESES

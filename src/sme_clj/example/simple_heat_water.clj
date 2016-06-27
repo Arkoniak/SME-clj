@@ -89,7 +89,7 @@
     ;; Should show the cause relation between the greater temperature
     ;; relation and the heat flow relation. This relation has been inferred
     ;; based on the analogical cause relation in the water flow graph.
-    (pp/write (:transferred (first gmaps)) :suppress-namespaces true)
+    (pp/write (:transferred (first (vec gmaps))) :suppress-namespaces true)
 
     ;; For other keys like :transferred that are stored in a gmap and might be
     ;; interesting to examine, see the docstring for 'sme-clj.core/match
