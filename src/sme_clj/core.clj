@@ -36,11 +36,8 @@
   (:require [clojure.set :as set]
             [clojure.math.combinatorics :as comb]
             [clojure.set :as c.set]
-            ;[clojure.contrib.set :as c.set]
-            ;[clojure.contrib.combinatorics :as comb]
-            )
-  (:require [sme-clj.typedef :refer :all]
-        [sme-clj.ruledef :refer :all] ))
+            [sme-clj.typedef :refer :all]
+            [sme-clj.ruledef :refer :all]))
 
 ;;;;
 ;;;; GENERATING MATCH HYPOTHESES
@@ -242,7 +239,7 @@
   [data]
   (let [consistent-sets
         (->>
-         (comb/subsets (:gmaps data))
+         (comb/subsets (into [] (:gmaps data)))
          (remove empty?)
          (filter gmap-set-internally-consistent?)
          (map set))]

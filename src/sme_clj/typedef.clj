@@ -2,7 +2,7 @@
 (ns sme-clj.typedef
   "Data type definitions and protocols for SME, as well as facilities to create
    instances of types and manipulate them."
-  (:use [sme-clj.util :only [defmake is-type?]]))
+  (:require [sme-clj.util :refer [defmake is-type?]]))
 
 ;;; ENTITY AND PREDICATE
 

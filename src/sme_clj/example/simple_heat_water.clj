@@ -11,8 +11,8 @@
           algorithm and examples. Artificial Intelligence, 41, 1-62.
   "
   (:require [sme-clj.typedef :refer :all] )
-  (:require [sme-clj.core   :as sme]
-            [clojure.pprint :as pp]))
+            [sme-clj.core   :as sme]
+            [clojure.pprint :as pp])
 
 ;; Predicate definitions
 
@@ -85,11 +85,12 @@
     ;; Water flow is the base, heat flow the target
     (def result (sme/match simple-water-flow simple-heat-flow))
     (def gmaps (:gmaps result))
+    (def mgmap (apply max-key :score gmaps))
 
     ;; Should show the cause relation between the greater temperature
     ;; relation and the heat flow relation. This relation has been inferred
     ;; based on the analogical cause relation in the water flow graph.
-    (pp/write (:transferred (first (vec gmaps))) :suppress-namespaces true)
+    (pp/write (:transferred mgmap) :suppress-namespaces true)
 
     ;; For other keys like :transferred that are stored in a gmap and might be
     ;; interesting to examine, see the docstring for 'sme-clj.core/match
